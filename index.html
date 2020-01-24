@@ -54,8 +54,9 @@
         #portrait {
             width: 30vw;
         }
-        #portContainer{
-            width:30vw;
+
+        #portContainer {
+            width: 30vw;
             max-height: 30vw;
             overflow: hidden;
             margin-right: 1em;
@@ -117,7 +118,8 @@
             </div>
         </section>
         </br>
-        <section><span>Notes and Inventory:</span></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        <section><span>Notes and
+                Inventory:</span></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
         </section>
     </section></br>
     <section>
@@ -798,15 +800,17 @@
                 }
             }
             window.print();
-            setTimeout(edit(), 1000);
+            edit();
         }
 
         function edit() {
-            for (x in document.getElementsByTagName("button")) {
-                document.getElementById(x.toString()).style.display = "inline";
-                if (x == document.getElementsByTagName("button").length - 1) {
-                    document.getElementById("instructions").style.display = "inline";
-                    break;
+            if (!window.matchMedia('(orientation:portrait)').matches) {
+                for (x in document.getElementsByTagName("button")) {
+                    document.getElementById(x.toString()).style.display = "inline";
+                    if (x == document.getElementsByTagName("button").length - 1) {
+                        document.getElementById("instructions").style.display = "inline";
+                        break;
+                    }
                 }
             }
         }
