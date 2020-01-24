@@ -9,9 +9,11 @@
             font-family: "Windlass";
             src: url("Windlass.ttf");
         }
-        span{
+
+        span {
             font-family: "Windlass";
         }
+
         .fourCol {
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -38,7 +40,8 @@
         #knowledge {
             margin: 1em;
         }
-        section{
+
+        section {
             margin-left: 1em;
         }
     </style>
@@ -58,16 +61,18 @@
         <div>
             <span>Race: </span>
             <div id="race"></div></br></br>
-            <img src="img\Heart.png" alt="wounds"><span>:</span>
+            <img src="img\Heart.png" alt="wounds" onclick="upHeart()"><span>:</span>
             <div id="wounds"></div></br>
-            <img src="img\Fatigue.png" alt="fatigue"><span>:</span>
+            <img src="img\Fatigue.png" alt="fatigue" onclick="upFatigue()"><span>:</span>
             <div id="fatigue"></div></br>
-            <span>Speed: </span>
+            <span onclick="upSpeed()">Speed: </span>
             <div id="speed"></div></br>
-            <span>Armor: </span>
+            <span onclick="upArmor()">Armor: </span>
             <div id="armor"></div>
         </div></br>
-        <div><span>Ability: </span><div id="ability"></div></div>
+        <div><span>Ability: </span>
+            <div id="ability"></div>
+        </div>
     </section></br>
     <section class="fourCol">
         <div>
@@ -98,7 +103,19 @@
             <button onclick="downK()" id="13">v</button>
         </div>
     </section></br>
-    <section><button onclick="printPage()" id="14">Save</button></section>
+    <section>
+        <div id="instructions">
+            <span>Instructions: </span>
+            Choose a race and ability from the list.</br>
+            Click on a trait to raise it by one. Each trait may only be raised once.</br>
+            The less traits you raise, the better your ability will be.</br>
+            Custom heroes do not have a feat, but have better abilities as compensation.</br></br>
+            Each skill can be raised and lowered with the arrows.</br>
+            You have 11 points to distribute between the four skills.</div></br></br>
+
+        <button onclick="printPage()" id="14">Save</button></br>
+        <button onclick="(location.reload())" id="15">Restart</button>
+    </section>
 
     <script>
         var might = 1;
@@ -107,6 +124,10 @@
         var awareness = 1;
         var trait = 4;
         var bp = 0;
+        var heartCap = false;
+        var fatigueCap = false;
+        var speedCap = false;
+        var armorCap = false;
         var pool = 7;
 
         document.getElementById("might").innerHTML = might;
@@ -188,6 +209,11 @@
             document.getElementById("speed").innerHTML = "4";
             document.getElementById("armor").innerHTML = "Grey";
             bp = 12;
+            trait = 4;
+            heartCap = false;
+            fatigueCap = false;
+            speedCap = false;
+            armorCap = false;
         }
 
         function dwarven() {
@@ -197,6 +223,11 @@
             document.getElementById("speed").innerHTML = "3";
             document.getElementById("armor").innerHTML = "Black";
             bp = 10;
+            trait = 4;
+            heartCap = false;
+            fatigueCap = false;
+            speedCap = false;
+            armorCap = false;
         }
 
         function elvish() {
@@ -206,6 +237,11 @@
             document.getElementById("speed").innerHTML = "5";
             document.getElementById("armor").innerHTML = "Grey";
             bp = 10;
+            trait = 4;
+            heartCap = false;
+            fatigueCap = false;
+            speedCap = false;
+            armorCap = false;
         }
 
         function beastial() {
@@ -215,6 +251,11 @@
             document.getElementById("speed").innerHTML = "4";
             document.getElementById("armor").innerHTML = "Brown";
             bp = 10;
+            trait = 4;
+            heartCap = false;
+            fatigueCap = false;
+            speedCap = false;
+            armorCap = false;
         }
 
         function nimble() {
@@ -224,12 +265,93 @@
             document.getElementById("speed").innerHTML = "4";
             document.getElementById("armor").innerHTML = "Brown";
             bp = 15;
+            trait = 4;
+            heartCap = false;
+            fatigueCap = false;
+            speedCap = false;
+            armorCap = false;
+        }
+
+        function upHeart() {
+            if (!heartCap) {
+                if (document.getElementById("wounds").innerHTML == "16") {
+                    document.getElementById("wounds").innerHTML = "20";
+                    trait--;
+                    heartCap = true;
+                }
+                if (document.getElementById("wounds").innerHTML == "12") {
+                    document.getElementById("wounds").innerHTML = "16";
+                    trait--;
+                    heartCap = true;
+                }
+                if (document.getElementById("wounds").innerHTML == "8") {
+                    document.getElementById("wounds").innerHTML = "12";
+                    trait--;
+                    heartCap = true;
+                }
+            }
+        }
+
+        function upFatigue() {
+            if (!fatigueCap) {
+                if (document.getElementById("fatigue").innerHTML == "5") {
+                    document.getElementById("fatigue").innerHTML = "6";
+                    trait--;
+                    fatigueCap = true;
+                }
+                if (document.getElementById("fatigue").innerHTML == "4") {
+                    document.getElementById("fatigue").innerHTML = "5";
+                    trait--;
+                    fatigueCap = true;
+                }
+            }
+        }
+
+        function upSpeed() {
+            if (!speedCap) {
+                if (document.getElementById("speed").innerHTML == "5") {
+                    document.getElementById("speed").innerHTML = "6";
+                    trait--;
+                    speedCap = true;
+                }
+                if (document.getElementById("speed").innerHTML == "4") {
+                    document.getElementById("speed").innerHTML = "5";
+                    trait--;
+                    speedCap = true;
+                }
+                if (document.getElementById("speed").innerHTML == "3") {
+                    document.getElementById("speed").innerHTML = "4";
+                    trait--;
+                    speedCap = true;
+                }
+            }
+        }
+
+        function upArmor() {
+            if (!armorCap) {
+                if (document.getElementById("armor").innerHTML == "Black") {
+                    document.getElementById("armor").innerHTML = "Black + Brown";
+                    trait--;
+                    armorCap = true;
+                }
+                if (document.getElementById("armor").innerHTML == "Grey") {
+                    document.getElementById("armor").innerHTML = "Black";
+                    trait--;
+                    armorCap = true;
+                }
+                if (document.getElementById("armor").innerHTML == "Brown") {
+                    document.getElementById("armor").innerHTML = "Grey";
+                    trait--;
+                    armorCap = true;
+                }
+            }
         }
 
         function printPage() {
             for (x in document.getElementsByTagName("button")) {
                 document.getElementById(x.toString()).style.display = "none";
                 if (x == document.getElementsByTagName("button").length - 1) {
+                    document.getElementById("instructions").style.display = "none";
                     break;
                 }
             }
@@ -241,6 +363,7 @@
             for (x in document.getElementsByTagName("button")) {
                 document.getElementById(x.toString()).style.display = "inline";
                 if (x == document.getElementsByTagName("button").length - 1) {
+                    document.getElementById("instructions").style.display = "inline";
                     break;
                 }
             }
