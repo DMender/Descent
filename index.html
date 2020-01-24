@@ -22,7 +22,7 @@
 
         .twoCol {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: auto auto auto auto;
             ;
             width: 30vw;
         }
@@ -49,24 +49,29 @@
         .container {
             padding: 1em;
             border: solid 2px black;
-            max-width: 600px;
         }
 
-        #portrait{
-            width: 250px;
-            position: relative;
-            left: 310px;
-            top: -270px;
+        #portrait {
+            width: 30vw;
+        }
+        #portContainer{
+            width:30vw;
+            max-height: 30vw;
+            overflow: hidden;
+            margin-right: 1em;
         }
     </style>
 </head>
 
 <body>
     <section class="container">
-        <img src="img\title.png" alt="Descent 2e">
+        <img src="img\title.png" alt="Descent 2e" style="vertical-align: text-top;"><span>Name:</span>
         </br></br>
         <section class="twoCol">
-            <div>
+            <div id="portContainer">
+                <img src="" alt="Character Portrait" id="portrait">
+            </div>
+            <div style="min-width: 20vw;">
                 <span>Race: </span>
                 <div id="race"></div></br></br>
                 <img src="img\Heart.png" alt="wounds" onclick="upHeart()"><span>:</span>
@@ -78,7 +83,7 @@
                 <span onclick="upArmor()">Armor: </span>
                 <div id="armor"></div>
             </div></br>
-            <div><span>Ability: </span>
+            <div style="min-width: 30vw;"><span>Ability: </span>
                 <div id="ability"></div>
             </div>
         </section></br>
@@ -111,10 +116,9 @@
                 <button onclick="downK()" id="13">v</button>
             </div>
         </section>
-
-        <img src="" alt="Character Portrait" id="portrait">
-    </br>
-        <section><span>~Notes and Inventory~</span></section>
+        </br>
+        <section><span>Notes and Inventory:</span></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        </section>
     </section></br>
     <section>
         <button onclick="beastial()" id="0">Beastial</button>
@@ -420,9 +424,354 @@
                     document.getElementById("ability").innerHTML = bp;
             }
             document.getElementById("ability").innerHTML += " " + abilityName;
+            if (abilityName == "Adept") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Adept: One power die that rolled a blank may be changed to a surge on each attack roll you make.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Adept: You receive 1 extra surge on each of your attack rolls.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Adept: You receive 2 extra surges on each of your attack rolls.";
+                }
+            }
+            if (abilityName == "Avenger") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Avenger: After another hero is killed, you may immediately move up to your speed and make one attack.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Avenger: After another hero is killed, you may immediately move up to your speed and make two attacks.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Avenger: After another hero is killed, you may immediately move up to twice your speed and make two attacks.";
+                }
+            }
+            if (abilityName == "Barbarian") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Bard") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Bodyguard") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Deadeye") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Defender") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Guardian") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Healer") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Master") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Scout") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Seer") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Soldier") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Tactician") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
+            if (abilityName == "Thief") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                }
+            }
         }
 
-        function previewFile() {
+        function previewFile() { //function previewFile was found online at Stackoverflow by user3335903
             var preview = document.getElementById('portrait'); //selects the query named img
             var file = document.querySelector('input[type=file]').files[0]; //sames as here
             var reader = new FileReader();
