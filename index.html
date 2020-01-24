@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        @font-face {
+            font-family: "Windlass";
+            src: url("Windlass.ttf");
+        }
+        span{
+            font-family: "Windlass";
+        }
+        .fourCol {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            width: 10vw;
+        }
+
+        .twoCol {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            width: 30vw;
+        }
+
+        div {
+            display: inline;
+        }
+
+        img {
+            vertical-align: text-bottom;
+        }
+
+        #might,
+        #awareness,
+        #willpower,
+        #knowledge {
+            margin: 1em;
+        }
+        section{
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img\title.png" alt="Descent 2e">
+    <section>
+        <button onclick="beastial()" id="0">Beastial</button>
+        <button onclick="dwarven()" id="1">Dwarven</button>
+        <button onclick="elvish()" id="2">Elvish</button>
+        <button onclick="human('Human')" id="3">Human</button>
+        <button onclick="nimble()" id="4">Nimble</button>
+        <button onclick="human('Orc')" id="5">Orcish</button>
+    </section></br>
+    <section class="twoCol">
+        <div>
+            <span>Race: </span>
+            <div id="race"></div></br></br>
+            <img src="img\Heart.png" alt="wounds"><span>:</span>
+            <div id="wounds"></div></br>
+            <img src="img\Fatigue.png" alt="fatigue"><span>:</span>
+            <div id="fatigue"></div></br>
+            <span>Speed: </span>
+            <div id="speed"></div></br>
+            <span>Armor: </span>
+            <div id="armor"></div>
+        </div></br>
+        <div><span>Ability: </span><div id="ability"></div></div>
+    </section></br>
+    <section class="fourCol">
+        <div>
+            <button onclick="upM()" id="6">^</button></br>
+            <img src="img\Might.png" alt="might">
+            <div id="might"></div>
+            <button onclick="downM()" id="7">v</button>
+        </div>
+
+        <div>
+            <button onclick="upW()" id="8">^</button></br>
+            <img src="img\Willpower.png" alt="willpower">
+            <div id="willpower"></div>
+            <button onclick="downW()" id="9">v</button>
+        </div>
+
+        <div>
+            <button onclick="upA()" id="10">^</button></br>
+            <img src="img\Awareness.png" alt="Awareness">
+            <div id="awareness"></div>
+            <button onclick="downA()" id="11">v</button>
+        </div>
+
+        <div>
+            <button onclick="upK()" id="12">^</button></br>
+            <img src="img\Knowledge.png" alt="knowledge">
+            <div id="knowledge"></div>
+            <button onclick="downK()" id="13">v</button>
+        </div>
+    </section></br>
+    <section><button onclick="printPage()" id="14">Save</button></section>
+
+    <script>
+        var might = 1;
+        var willpower = 1;
+        var knowledge = 1;
+        var awareness = 1;
+        var trait = 4;
+        var bp = 0;
+        var pool = 7;
+
+        document.getElementById("might").innerHTML = might;
+
+        function upM() {
+            if (pool > 0) {
+                might++;
+                pool--;
+            }
+            document.getElementById("might").innerHTML = might;
+        }
+
+        function downM() {
+            if (might > 1) {
+                might--;
+                pool++;
+            }
+            document.getElementById("might").innerHTML = might;
+        }
+
+        document.getElementById("willpower").innerHTML = willpower;
+
+        function upW() {
+            if (pool > 0) {
+                willpower++;
+                pool--;
+            }
+            document.getElementById("willpower").innerHTML = willpower;
+        }
+
+        function downW() {
+            if (willpower > 1) {
+                willpower--;
+                pool++;
+            }
+            document.getElementById("willpower").innerHTML = willpower;
+        }
+
+        document.getElementById("awareness").innerHTML = awareness;
+
+        function upA() {
+            if (pool > 0) {
+                awareness++;
+                pool--;
+            }
+            document.getElementById("awareness").innerHTML = awareness;
+        }
+
+        function downA() {
+            if (awareness > 1) {
+                awareness--;
+                pool++;
+            }
+            document.getElementById("awareness").innerHTML = awareness;
+        }
+
+        document.getElementById("knowledge").innerHTML = knowledge;
+
+        function upK() {
+            if (pool > 0) {
+                knowledge++;
+                pool--;
+            }
+            document.getElementById("knowledge").innerHTML = knowledge;
+        }
+
+        function downK() {
+            if (knowledge > 1) {
+                knowledge--;
+                pool++;
+            }
+            document.getElementById("knowledge").innerHTML = knowledge;
+        }
+
+        function human(race) {
+            document.getElementById("race").innerHTML = race;
+            document.getElementById("wounds").innerHTML = "12";
+            document.getElementById("fatigue").innerHTML = "4";
+            document.getElementById("speed").innerHTML = "4";
+            document.getElementById("armor").innerHTML = "Grey";
+            bp = 12;
+        }
+
+        function dwarven() {
+            document.getElementById("race").innerHTML = "Dwarf";
+            document.getElementById("wounds").innerHTML = "8";
+            document.getElementById("fatigue").innerHTML = "5";
+            document.getElementById("speed").innerHTML = "3";
+            document.getElementById("armor").innerHTML = "Black";
+            bp = 10;
+        }
+
+        function elvish() {
+            document.getElementById("race").innerHTML = "Elf";
+            document.getElementById("wounds").innerHTML = "8";
+            document.getElementById("fatigue").innerHTML = "4";
+            document.getElementById("speed").innerHTML = "5";
+            document.getElementById("armor").innerHTML = "Grey";
+            bp = 10;
+        }
+
+        function beastial() {
+            document.getElementById("race").innerHTML = "Beastial";
+            document.getElementById("wounds").innerHTML = "16";
+            document.getElementById("fatigue").innerHTML = "4";
+            document.getElementById("speed").innerHTML = "4";
+            document.getElementById("armor").innerHTML = "Brown";
+            bp = 10;
+        }
+
+        function nimble() {
+            document.getElementById("race").innerHTML = "Nimble";
+            document.getElementById("wounds").innerHTML = "8";
+            document.getElementById("fatigue").innerHTML = "5";
+            document.getElementById("speed").innerHTML = "4";
+            document.getElementById("armor").innerHTML = "Brown";
+            bp = 15;
+        }
+
+        function printPage() {
+            for (x in document.getElementsByTagName("button")) {
+                document.getElementById(x.toString()).style.display = "none";
+                if (x == document.getElementsByTagName("button").length - 1) {
+                    break;
+                }
+            }
+            window.print();
+            setTimeout(edit(), 1000);
+        }
+
+        function edit() {
+            for (x in document.getElementsByTagName("button")) {
+                document.getElementById(x.toString()).style.display = "inline";
+                if (x == document.getElementsByTagName("button").length - 1) {
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
