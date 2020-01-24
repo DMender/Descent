@@ -22,7 +22,7 @@
 
         .twoCol {
             display: grid;
-            grid-template-columns: auto auto auto auto;
+            grid-template-columns: repeat(3, 1fr);;
             width: 30vw;
         }
 
@@ -49,14 +49,7 @@
 
 <body>
     <img src="img\title.png" alt="Descent 2e">
-    <section>
-        <button onclick="beastial()" id="0">Beastial</button>
-        <button onclick="dwarven()" id="1">Dwarven</button>
-        <button onclick="elvish()" id="2">Elvish</button>
-        <button onclick="human('Human')" id="3">Human</button>
-        <button onclick="nimble()" id="4">Nimble</button>
-        <button onclick="human('Orc')" id="5">Orcish</button>
-    </section></br>
+</br></br>
     <section class="twoCol">
         <div>
             <span>Race: </span>
@@ -104,9 +97,34 @@
         </div>
     </section></br>
     <section>
+        <button onclick="beastial()" id="0">Beastial</button>
+        <button onclick="dwarven()" id="1">Dwarven</button>
+        <button onclick="elvish()" id="2">Elvish</button>
+        <button onclick="human('Human')" id="3">Human</button>
+        <button onclick="nimble()" id="4">Nimble</button>
+        <button onclick="human('Orc')" id="5">Orcish</button>
+    </section></br>
+    <section>
+        <button onclick="abilityName = 'Adept'; updateAbility();" id="16">Adept</button>
+        <button onclick="abilityName = 'Avenger'; updateAbility();" id="17">Avenger</button>
+        <button onclick="abilityName = 'Barbarian'; updateAbility();" id="18">Barbarian</button>
+        <button onclick="abilityName = 'Bard'; updateAbility();" id="19">Bard</button>
+        <button onclick="abilityName = 'Bodyguard'; updateAbility();" id="20">Bodyguard</button></br>
+        <button onclick="abilityName = 'Deadeye'; updateAbility();" id="21">Deadeye</button>
+        <button onclick="abilityName = 'Defender'; updateAbility();" id="22">Defender</button>
+        <button onclick="abilityName = 'Guardian'; updateAbility();" id="23">Guardian</button>
+        <button onclick="abilityName = 'Healer'; updateAbility();" id="24">Healer</button>
+        <button onclick="abilityName = 'Master'; updateAbility();" id="25">Master</button></br>
+        <button onclick="abilityName = 'Scout'; updateAbility();" id="26">Scout</button>
+        <button onclick="abilityName = 'Seer'; updateAbility();" id="27">Seer</button>
+        <button onclick="abilityName = 'Soldier'; updateAbility();" id="28">Soldier</button>
+        <button onclick="abilityName = 'Tactician'; updateAbility();" id="29">Tactician</button>
+        <button onclick="abilityName = 'Thief'; updateAbility();" id="30">Thief</button>
+    </section></br>
+    <section>
         <div id="instructions">
-            <span>Instructions: </span>
-            Choose a race and ability from the list.</br>
+            <span>Instructions: </span></br>
+            Choose a race and an ability from the list. *ability descriptions will be added later.</br></br>
             Click on a trait to raise it by one. Each trait may only be raised once.</br>
             The less traits you raise, the better your ability will be.</br>
             Custom heroes do not have a feat, but have better abilities as compensation.</br></br>
@@ -123,7 +141,9 @@
         var knowledge = 1;
         var awareness = 1;
         var trait = 4;
+        var baseBp = 0;
         var bp = 0;
+        var abilityName = " ";
         var heartCap = false;
         var fatigueCap = false;
         var speedCap = false;
@@ -208,12 +228,13 @@
             document.getElementById("fatigue").innerHTML = "4";
             document.getElementById("speed").innerHTML = "4";
             document.getElementById("armor").innerHTML = "Grey";
-            bp = 12;
+            baseBp = 12;
             trait = 4;
             heartCap = false;
             fatigueCap = false;
             speedCap = false;
             armorCap = false;
+            updateAbility();
         }
 
         function dwarven() {
@@ -222,12 +243,13 @@
             document.getElementById("fatigue").innerHTML = "5";
             document.getElementById("speed").innerHTML = "3";
             document.getElementById("armor").innerHTML = "Black";
-            bp = 10;
+            baseBp = 10;
             trait = 4;
             heartCap = false;
             fatigueCap = false;
             speedCap = false;
             armorCap = false;
+            updateAbility();
         }
 
         function elvish() {
@@ -236,12 +258,13 @@
             document.getElementById("fatigue").innerHTML = "4";
             document.getElementById("speed").innerHTML = "5";
             document.getElementById("armor").innerHTML = "Grey";
-            bp = 10;
+            baseBp = 10;
             trait = 4;
             heartCap = false;
             fatigueCap = false;
             speedCap = false;
             armorCap = false;
+            updateAbility();
         }
 
         function beastial() {
@@ -250,12 +273,13 @@
             document.getElementById("fatigue").innerHTML = "4";
             document.getElementById("speed").innerHTML = "4";
             document.getElementById("armor").innerHTML = "Brown";
-            bp = 10;
+            baseBp = 10;
             trait = 4;
             heartCap = false;
             fatigueCap = false;
             speedCap = false;
             armorCap = false;
+            updateAbility();
         }
 
         function nimble() {
@@ -264,12 +288,13 @@
             document.getElementById("fatigue").innerHTML = "5";
             document.getElementById("speed").innerHTML = "4";
             document.getElementById("armor").innerHTML = "Brown";
-            bp = 15;
+            baseBp = 15;
             trait = 4;
             heartCap = false;
             fatigueCap = false;
             speedCap = false;
             armorCap = false;
+            updateAbility();
         }
 
         function upHeart() {
@@ -289,6 +314,7 @@
                     trait--;
                     heartCap = true;
                 }
+                updateAbility();
             }
         }
 
@@ -304,6 +330,7 @@
                     trait--;
                     fatigueCap = true;
                 }
+                updateAbility();
             }
         }
 
@@ -324,6 +351,7 @@
                     trait--;
                     speedCap = true;
                 }
+                updateAbility();
             }
         }
 
@@ -344,7 +372,33 @@
                     trait--;
                     armorCap = true;
                 }
+                updateAbility();
             }
+        }
+
+        function updateAbility() {
+            switch (trait) {
+                case 0:
+                    bp = baseBp - 10;
+                    document.getElementById("ability").innerHTML = bp;
+                    break;
+                case 1:
+                    bp = baseBp - 6;
+                    document.getElementById("ability").innerHTML = bp;
+                    break;
+                case 2:
+                    bp = baseBp - 3;
+                    document.getElementById("ability").innerHTML = bp;
+                    break;
+                case 3:
+                    bp = baseBp - 1;
+                    document.getElementById("ability").innerHTML = bp;
+                    break;
+                default:
+                    bp = baseBp;
+                    document.getElementById("ability").innerHTML = bp;
+            }
+            document.getElementById("ability").innerHTML += " " + abilityName;
         }
 
         function printPage() {
