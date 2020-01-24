@@ -22,7 +22,8 @@
 
         .twoCol {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);;
+            grid-template-columns: repeat(3, 1fr);
+            ;
             width: 30vw;
         }
 
@@ -42,59 +43,78 @@
         }
 
         section {
-            margin-left: 1em;
+            padding-left: 1em;
+        }
+
+        .container {
+            padding: 1em;
+            border: solid 2px black;
+            max-width: 600px;
+        }
+
+        #portrait{
+            width: 250px;
+            position: relative;
+            left: 310px;
+            top: -270px;
         }
     </style>
 </head>
 
 <body>
-    <img src="img\title.png" alt="Descent 2e">
-</br></br>
-    <section class="twoCol">
-        <div>
-            <span>Race: </span>
-            <div id="race"></div></br></br>
-            <img src="img\Heart.png" alt="wounds" onclick="upHeart()"><span>:</span>
-            <div id="wounds"></div></br>
-            <img src="img\Fatigue.png" alt="fatigue" onclick="upFatigue()"><span>:</span>
-            <div id="fatigue"></div></br>
-            <span onclick="upSpeed()">Speed: </span>
-            <div id="speed"></div></br>
-            <span onclick="upArmor()">Armor: </span>
-            <div id="armor"></div>
-        </div></br>
-        <div><span>Ability: </span>
-            <div id="ability"></div>
-        </div>
-    </section></br>
-    <section class="fourCol">
-        <div>
-            <button onclick="upM()" id="6">^</button></br>
-            <img src="img\Might.png" alt="might">
-            <div id="might"></div>
-            <button onclick="downM()" id="7">v</button>
-        </div>
+    <section class="container">
+        <img src="img\title.png" alt="Descent 2e">
+        </br></br>
+        <section class="twoCol">
+            <div>
+                <span>Race: </span>
+                <div id="race"></div></br></br>
+                <img src="img\Heart.png" alt="wounds" onclick="upHeart()"><span>:</span>
+                <div id="wounds"></div></br>
+                <img src="img\Fatigue.png" alt="fatigue" onclick="upFatigue()"><span>:</span>
+                <div id="fatigue"></div></br>
+                <span onclick="upSpeed()">Speed: </span>
+                <div id="speed"></div></br>
+                <span onclick="upArmor()">Armor: </span>
+                <div id="armor"></div>
+            </div></br>
+            <div><span>Ability: </span>
+                <div id="ability"></div>
+            </div>
+        </section></br>
+        <section class="fourCol">
+            <div>
+                <button onclick="upM()" id="6">^</button></br>
+                <img src="img\Might.png" alt="might">
+                <div id="might"></div>
+                <button onclick="downM()" id="7">v</button>
+            </div>
 
-        <div>
-            <button onclick="upW()" id="8">^</button></br>
-            <img src="img\Willpower.png" alt="willpower">
-            <div id="willpower"></div>
-            <button onclick="downW()" id="9">v</button>
-        </div>
+            <div>
+                <button onclick="upW()" id="8">^</button></br>
+                <img src="img\Willpower.png" alt="willpower">
+                <div id="willpower"></div>
+                <button onclick="downW()" id="9">v</button>
+            </div>
 
-        <div>
-            <button onclick="upA()" id="10">^</button></br>
-            <img src="img\Awareness.png" alt="Awareness">
-            <div id="awareness"></div>
-            <button onclick="downA()" id="11">v</button>
-        </div>
+            <div>
+                <button onclick="upA()" id="10">^</button></br>
+                <img src="img\Awareness.png" alt="Awareness">
+                <div id="awareness"></div>
+                <button onclick="downA()" id="11">v</button>
+            </div>
 
-        <div>
-            <button onclick="upK()" id="12">^</button></br>
-            <img src="img\Knowledge.png" alt="knowledge">
-            <div id="knowledge"></div>
-            <button onclick="downK()" id="13">v</button>
-        </div>
+            <div>
+                <button onclick="upK()" id="12">^</button></br>
+                <img src="img\Knowledge.png" alt="knowledge">
+                <div id="knowledge"></div>
+                <button onclick="downK()" id="13">v</button>
+            </div>
+        </section>
+
+        <img src="" alt="Character Portrait" id="portrait">
+    </br>
+        <section><span>~Notes and Inventory~</span></section>
     </section></br>
     <section>
         <button onclick="beastial()" id="0">Beastial</button>
@@ -123,8 +143,9 @@
     </section></br>
     <section>
         <div id="instructions">
+            <input type="file" onchange="previewFile()"></br></br>
             <span>Instructions: </span></br>
-            Choose a race and an ability from the list. *ability descriptions will be added later.</br></br>
+            Choose a race and an ability from the list.</br></br>
             Click on a trait to raise it by one. Each trait may only be raised once.</br>
             The less traits you raise, the better your ability will be.</br>
             Custom heroes do not have a feat, but have better abilities as compensation.</br></br>
@@ -399,6 +420,22 @@
                     document.getElementById("ability").innerHTML = bp;
             }
             document.getElementById("ability").innerHTML += " " + abilityName;
+        }
+
+        function previewFile() {
+            var preview = document.getElementById('portrait'); //selects the query named img
+            var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            } else {
+                preview.src = "";
+            }
         }
 
         function printPage() {
