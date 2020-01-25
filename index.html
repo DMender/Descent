@@ -70,7 +70,7 @@
         </br></br>
         <section class="twoCol">
             <div id="portContainer">
-                <img src="" alt="Character Portrait" id="portrait">
+                <img src="img\default.png" alt="Character Portrait" id="portrait">
             </div>
             <div style="min-width: 20vw;">
                 <span>Race: </span>
@@ -84,8 +84,8 @@
                 <span onclick="upArmor()">Armor: </span>
                 <div id="armor"></div>
             </div></br>
-            <div style="min-width: 30vw;"><span>Ability: </span>
-                <div id="ability"></div>
+            <div style="min-width: 30vw;">
+                <div id="ability"><span>Ability:</span></div>
             </div>
         </section></br>
         <section class="fourCol">
@@ -140,7 +140,9 @@
         <button onclick="abilityName = 'Defender'; updateAbility();" id="22">Defender</button>
         <button onclick="abilityName = 'Guardian'; updateAbility();" id="23">Guardian</button>
         <button onclick="abilityName = 'Healer'; updateAbility();" id="24">Healer</button>
-        <button onclick="abilityName = 'Master'; updateAbility();" id="25">Master</button></br>
+        <button onclick="abilityName = 'MasterMelee'; updateAbility();" id="25">Master of Melee</button>
+        <button onclick="abilityName = 'MasterRange'; updateAbility();" id="31">Master of Range</button>
+        <button onclick="abilityName = 'MasterRunes'; updateAbility();" id="32">Master of Runes</button></br>
         <button onclick="abilityName = 'Scout'; updateAbility();" id="26">Scout</button>
         <button onclick="abilityName = 'Seer'; updateAbility();" id="27">Seer</button>
         <button onclick="abilityName = 'Soldier'; updateAbility();" id="28">Soldier</button>
@@ -435,7 +437,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Adept: One power die that rolled a blank may be changed to a surge on each attack roll you make.";
+                            "<span>Adept:</span> One power die that rolled a blank may be changed to a surge on each attack roll you make.";
                         break;
                     case 0:
                     case 4:
@@ -444,11 +446,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Adept: You receive 1 extra surge on each of your attack rolls.";
+                            "<span>Adept:</span> You receive 1 extra surge on each of your attack rolls.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Adept: You receive 2 extra surges on each of your attack rolls.";
+                            "<span>Adept:</span> You receive 2 extra surges on each of your attack rolls.";
                 }
             }
             if (abilityName == "Avenger") {
@@ -458,7 +460,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Avenger: After another hero is killed, you may immediately move up to your speed and make one attack.";
+                            "<span>Avenger:</span> After another hero is killed, you may immediately move up to your speed and make one attack.";
                         break;
                     case 0:
                     case 4:
@@ -467,11 +469,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Avenger: After another hero is killed, you may immediately move up to your speed and make two attacks.";
+                            "<span>Avenger:</span> After another hero is killed, you may immediately move up to your speed and make two attacks.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Avenger: After another hero is killed, you may immediately move up to twice your speed and make two attacks.";
+                            "<span>Avenger:</span> After another hero is killed, you may immediately move up to twice your speed and make two attacks.";
                 }
             }
             if (abilityName == "Barbarian") {
@@ -481,7 +483,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Barbarian:</span> You are immune to Pierce and all conditions. You have one additional brown die. You may not equip runes or armor.";
                         break;
                     case 0:
                     case 4:
@@ -490,11 +492,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Barbarian:</span> You are immune to Pierce and all conditions. You have one additional grey die. You may not equip runes or armor.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Barbarian:</span> You are immune to Pierce and all conditions. You have one additional black die. You may not equip runes or armor.";
                 }
             }
             if (abilityName == "Bard") {
@@ -504,7 +506,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Bard:</span> At the start of your turn, all other heroes within 3 spaces of you gain 1 fatigue.";
                         break;
                     case 0:
                     case 4:
@@ -513,11 +515,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Bard:</span> At the start of your turn, all other heroes within 6 spaces of you gain 1 fatigue.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Bard:</span> At the start of your turn, you and all other heroes within 6 spaces of you gain 1 fatigue.";
                 }
             }
             if (abilityName == "Bodyguard") {
@@ -527,7 +529,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Bodyguard:</span> When an adjacent friendly figure is attacked, before the dice are rolled, spend 1 fatigue to swap places with that figure. The attack targets you instead.";
                         break;
                     case 0:
                     case 4:
@@ -536,11 +538,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Bodyguard:</span> When friendly figure within 2 spaces is attacked, before the dice are rolled, spend 1 fatigue to swap places with that figure. The attack targets you instead.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Bodyguard:</span> When a friendly figure within 2 spaces is attacked, before the dice are rolled, you may swap places with that figure. The attack targets you instead.";
                 }
             }
             if (abilityName == "Deadeye") {
@@ -550,7 +552,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Deadeye:</span> Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
                         break;
                     case 0:
                     case 4:
@@ -559,11 +561,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Deadeye:</span> Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Deadeye:</span> Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
                 }
             }
             if (abilityName == "Defender") {
@@ -573,7 +575,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Defender:</span> Enemy figures within 3 spaces of you suffer –1 range and –1 damage.";
                         break;
                     case 0:
                     case 4:
@@ -582,11 +584,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Defender:</span> Enemy figures within 6 spaces of you suffer –1 range and –1 damage.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Defender:</span> Enemy figures within 6 spaces of you suffer –2 range and –1 damage.";
                 }
             }
             if (abilityName == "Guardian") {
@@ -596,7 +598,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Guardian:</span> When a monster moves into a space adjacent to you, exhaust this ability to interrupt that monster's activation and perform an attack with a Melee weapon. After this attack is resolved, if the monster was not defeated, its may continue its activation. If you spend 3 fatigue, you do not have to exhaust this ability.";
                         break;
                     case 0:
                     case 4:
@@ -605,11 +607,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Guardian:</span> When a monster moves into a space adjacent to you, exhaust this ability to interrupt that monster's activation and perform an attack with a Melee weapon. After this attack is resolved, if the monster was not defeated, its may continue its activation. If you spend 2 fatigue, you do not have to exhaust this ability.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Guardian:</span> When a monster moves into a space adjacent to you, exhaust this ability to interrupt that monster's activation and perform an attack with a Melee weapon. After this attack is resolved, if the monster was not defeated, its may continue its activation. If you spend 1 fatigue, you do not have to exhaust this ability.";
                 }
             }
             if (abilityName == "Healer") {
@@ -619,7 +621,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Healer:</span> <img src='img/Action.png' alt='action'/>: Roll one red power die. You may restore wounds equal to the number of <img src='img/Heart.png' alt='hearts'>, split however you like, between yourself and any other heroes adjacent to you.";
                         break;
                     case 0:
                     case 4:
@@ -628,21 +630,21 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Healer:</span> <img src='img/Action.png' alt='action'>: Roll one red power die. You may restore wounds equal to the number of <img src='img/Heart.png' alt='hearts'>, split however you like, between yourself and any other heroes within 3 spaces of you.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Healer:</span> <img src='img/Action.png' alt='action'>: Roll two red power die. You may restore wounds equal to the number of <img src='img/Heart.png' alt='hearts'>, split however you like, between yourself and any other heroes within 3 spaces of you.";
                 }
             }
-            if (abilityName == "Master") {
+            if (abilityName == "MasterMelee") {
                 switch (bp) {
                     case 0:
                     case 1:
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Master of Melee:</span> You have one additional yellow power die when you use a melee weapon.";
                         break;
                     case 0:
                     case 4:
@@ -651,11 +653,57 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Master of Melee:</span> You have one additional red power die when you use a melee weapon.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Master of Melee:</span> You have one additional yellow power die, and one additional red power die when you use a melee weapon.";
+                }
+            }
+            if (abilityName == "MasterRange") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "<span>Master of Range:</span> You have one additional yellow power die when you use a ranged weapon.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "<span>Master of Range:</span> You have one additional red power die when you use a ranged weapon.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "<span>Master of Range:</span> You have one additional yellow power die, and one additional red power die when you use a ranged weapon.";
+                }
+            }
+            if (abilityName == "MasterRunes") {
+                switch (bp) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.getElementById("ability").innerHTML =
+                            "<span>Master of Runes:</span> You have one additional yellow power die when you use a rune weapon.";
+                        break;
+                    case 0:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.getElementById("ability").innerHTML =
+                            "<span>Master of Runes:</span> You have one additional red power die when you use a rune weapon.";
+                        break;
+                    default:
+                        document.getElementById("ability").innerHTML =
+                            "<span>Master of Runes:</span> You have one additional yellow power die, and one additional red power die when you use a rune weapon.";
                 }
             }
             if (abilityName == "Scout") {
@@ -665,7 +713,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Scout:</span> You regain 2 fatigue when you make a second move action.";
                         break;
                     case 0:
                     case 4:
@@ -674,11 +722,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Scout:</span> You have +1 fatigue. You regain 2 fatigue when you make a second move action.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Scout:</span> You have +1 fatigue and +1 speed. You regain 2 fatigue when you make a second move action.";
                 }
             }
             if (abilityName == "Seer") {
@@ -688,7 +736,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Seer:</span> At the start of your turn look at the overlord's hand. As an action you may spend 1 fatigue to discard a card of your choice.";
                         break;
                     case 0:
                     case 4:
@@ -697,11 +745,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Seer:</span> At the start of your turn look at the overlord's hand. As an action you may spend 1 fatigue to discard 2 cards of your choice.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Seer:</span> At the start of your turn look at the overlord's hand. As an action you may spend up to 2 fatigue to discard twice that many cards of your choice.";
                 }
             }
             if (abilityName == "Soldier") {
@@ -711,7 +759,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Soldier:</span> You receive +1 damage and +2 range when adjacent to a friendly figure.";
                         break;
                     case 0:
                     case 4:
@@ -720,11 +768,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Soldier:</span> You receive +2 damage and +2 range when adjacent to a friendly figure.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Soldier:</span> You receive +2 damage, +2 range, and 1 brown die when adjacent to a friendly figure.";
                 }
             }
             if (abilityName == "Tactician") {
@@ -734,7 +782,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Tactician:</span> You receive +1 damage and +1 range to all attacks.";
                         break;
                     case 0:
                     case 4:
@@ -743,11 +791,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Tactician:</span> Each ally within 3 spaces of this hero may reroll 1 die on each of its attacks. Each hero may only benefit from one ally with tactician at a time.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Tactician:</span> Each ally within 6 spaces of this hero may reroll 1 die on each of its attacks. Each hero may only benefit from one ally with tactician at a time.";
                 }
             }
             if (abilityName == "Thief") {
@@ -757,7 +805,7 @@
                     case 2:
                     case 3:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to re-roll one attack die showing a miss result, but you must keep the second result.";
+                            "<span>Thief:</span> The overlord must discard one card in order to play a card on you. When rolling to avoid or reduce the effects of a trap card, you roll a second grey die instead of the black.";
                         break;
                     case 0:
                     case 4:
@@ -766,11 +814,11 @@
                     case 7:
                     case 8:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 0 range and –1 damage.";
+                            "<span>Thief:</span> The overlord must discard one card in order to play a card on you. When rolling to avoid or reduce the effects of a trap card, you roll a brown die instead of the black.";
                         break;
                     default:
                         document.getElementById("ability").innerHTML =
-                            "Deadeye: Once per attack, you may spend 1 fatigue to either re-roll or ignore one attack die showing a miss result. If you re-roll, you must keep the second result. If you ignore it, treat it as a die showing 1 range and 0 damage.";
+                            "<span>Thief:</span> The overlord must discard one card in order to play a card on you. When rolling to avoid or reduce the effects of a trap card, you roll two brown die instead of the grey and black.";
                 }
             }
         }
